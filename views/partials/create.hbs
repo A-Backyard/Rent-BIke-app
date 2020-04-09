@@ -1,0 +1,52 @@
+<section class="rent">
+    <div class="container">
+        <div class="rent__title">
+            <img src="https://emojio.ru/images/apple-b/1f929.png" alt="">
+            <h2 id="rs">Your rent (Total:$</h2>
+        </div>
+        <div class="rent__list">
+            {{!-- {{#if completed}} --}}
+
+            <ul class="ul">
+                {{#each todos}}
+                    {{#if status}}
+                        <li class="td">
+                            <form action="/rented" method="POST">
+                                <label>
+
+                                        <span class="rented">{{title}} &nbsp / &nbsp {{type}}
+                                            &nbsp/ &nbsp <span id="price"> {{price}}</span></span>
+
+                                    <input type="hidden" value="{{_id}}" name="id">
+                                    <span class="rent__buttons">
+
+
+                                        <button formaction="/delete" class="btn b2">Cancel Rent</button>
+                                        </span>
+                                </label>
+                            </form>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+            {{!-- {{else}}
+                <p>Empty list!</p>
+            {{/if}} --}}
+        </div>
+
+    </div>
+</section>
+
+<script>
+    window.onload = function () {
+        let calc = +document.getElementById('price').innerHTML;
+        let summ = calc * document.getElementsByClassName('td').length;
+        setInterval(function () {
+            summ++;
+        }, 10000000);
+
+        document.getElementById('rs').innerHTML += summ + ")"
+
+
+    }
+</script>
