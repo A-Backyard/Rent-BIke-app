@@ -1,3 +1,3 @@
 # Rent-BIke-app
-test task for TechStack co.
+tt for TechStack co.
 
